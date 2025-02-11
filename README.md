@@ -1,3 +1,6 @@
+download the zip first
+
+
 open home.html first to open the home page
 
 
