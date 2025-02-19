@@ -15,6 +15,7 @@ header {
     background-color: #4CAF50;
     color: #fff;
     background-image: url(gradgreen.avif);
+    width: 100%;
     background-size: cover;
 }
 
