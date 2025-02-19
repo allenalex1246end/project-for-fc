@@ -1,56 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inventory Management System</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
-<header>
-    <div class="logo">
-        <h1>Inventory Management System</h1>
-    </div>
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="inventory.html">Inventory</a></li>
-            <li><a href="#">Git</a></li>
-        </ul>
-    </nav>
-</header>
+    <header>
+        <div class="logo">
+            <h1>Inventory Management System</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="inventory.html">Inventory</a></li>
+                <li><a href="https://github.com/allenalex1246end/project-for-fc">Git</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<div class="container">
-    <div class="form-section">
-        <h2>Add New Product</h2>
-        <form id="addProductForm">
-            <input type="text" id="productName" placeholder="Product Name" required>
-            <input type="number" id="productQuantity" placeholder="Quantity" required>
-            <input type="number" id="productPrice" placeholder="Price" required>
-            <button type="submit" id="submitButton">Add Product</button>
-        </form>
+    <div class="container">
+        <div class="form-section">
+            <h2>Add New Product</h2>
+            <form id="addProductForm">
+                <input type="text" id="productName" placeholder="Product Name" required>
+                <input type="number" id="productQuantity" placeholder="Quantity" required>
+                <input type="number" id="productPrice" placeholder="Price" required>
+                <button type="submit" id="submitButton">Add Product</button>
+            </form>
+        </div>
+
+        <div class="inventory-section">
+            <h2>Inventory</h2>
+            <table id="inventoryTable">
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Inventory items will be displayed here -->
+                </tbody>
+            </table>
+        </div>
     </div>
 
-    <div class="inventory-section">
-        <h2>Inventory</h2>
-        <table id="inventoryTable">
-            <thead>
-                <tr>
-                    <th>Product Name</th>
-                    <th>Quantity</th>
-                    <th>Price</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Inventory items will be displayed here -->
-            </tbody>
-        </table>
-    </div>
-</div>
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>

@@ -14,7 +14,7 @@ header {
     padding: 20px;
     background-color: #4CAF50;
     color: #fff;
-    background-image:url(gradgreen.avif);
+    background-image: url(gradgreen.avif);
     background-size: cover;
 }
 
@@ -46,7 +46,8 @@ nav ul li a:hover {
     padding: 20px;
 }
 
-h1, h2 {
+h1,
+h2 {
     font-size: 24px;
 }
 
@@ -56,7 +57,9 @@ h1, h2 {
     text-align: center;
 }
 
-input[type="text"], input[type="number"], button {
+input[type="text"],
+input[type="number"],
+button {
     padding: 10px;
     margin: 10px;
     width: 200px;
@@ -79,7 +82,7 @@ button:hover {
 
 /* Table Section */
 .inventory-section {
-    margin-top: 20px;   
+    margin-top: 20px;
     text-align: center;
 }
 
@@ -89,7 +92,8 @@ table {
     border-collapse: collapse;
 }
 
-th, td {
+th,
+td {
     padding: 10px;
     border: 1px solid #ddd;
     text-align: center;

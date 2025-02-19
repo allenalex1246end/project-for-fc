@@ -17,7 +17,7 @@ header {
     padding: 20px;
     background-color: #4CAF50;
     color: #fff;
-    background-image:url(gradgreen.avif);
+    background-image: url(gradgreen.avif);
     background-size: cover;
 }
 
@@ -56,7 +56,8 @@ nav ul li a:hover {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-h1, h2 {
+h1,
+h2 {
     font-size: 32px;
     margin-bottom: 15px;
 }
@@ -87,21 +88,24 @@ p {
 
 .btn:hover {
     background-color: #204b38;
-}/* Features Section Styling */
-.features { 
+}
+
+/* Features Section Styling */
+.features {
     display: flex;
     justify-content: space-around;
     padding: 40px 20px;
     background-color: #fff;
-    border-radius: 5px;
+    border-radius: 8px;
     width: 95%;
     align-self: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .features .feature {
     background-color: #e8e8e8;
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 8px;
     width: 30%;
     text-align: center;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -145,10 +149,12 @@ footer p {
         padding: 12px 25px;
     }
 
-    h1, h2 {
+    h1,
+    h2 {
         font-size: 28px;
     }
 }
+
 /* Footer Styling */
 footer {
     text-align: center;
