@@ -13,7 +13,7 @@ function updateInventoryTable() {
         row.insertCell(0).textContent = item.name;
         row.insertCell(1).textContent = item.quantity;
         row.insertCell(2).textContent = `₹${item.price.toFixed(3)}`;
-        
+
         // Create delete button
         const deleteButton = document.createElement('button');
         deleteButton.classList.add('delete');
@@ -26,7 +26,7 @@ function updateInventoryTable() {
 }
 
 // Function to handle the form submission
-document.getElementById('addProductForm').addEventListener('submit', function(event) {
+document.getElementById('addProductForm').addEventListener('submit', function (event) {
     event.preventDefault(); // Prevent the page from reloading on form submit
 
     const productName = document.getElementById('productName').value;
