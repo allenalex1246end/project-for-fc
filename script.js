@@ -3,11 +3,11 @@ let inventory = [];
 
 // function to update the table
 function updateInventoryTable() {
-    const inventoryTableBody = document.getElementById('inventoryTable').getElementsByTagName('tbody')[0];
-    inventoryTableBody.innerHTML = ''; // clear the table body before updating
+    const inventorytableBody = document.getElementById('inventoryTable').getElementsByTagName('tbody')[0];
+    inventorytableBody.innerHTML = ''; // clear the table body before updating
 
     inventory.forEach((item, index) => {
-        let row = inventoryTableBody.insertRow();
+        let row = inventorytableBody.insertRow();
 
         // insert product name, quantity, price, and actions
         row.insertCell(0).textContent = item.name;
@@ -15,13 +15,13 @@ function updateInventoryTable() {
         row.insertCell(2).textContent = `₹${item.price.toFixed(3)}`;
 
         // create delete button
-        const deleteButton = document.createElement('button');
-        deleteButton.classList.add('delete');
-        deleteButton.textContent = 'Delete';
-        deleteButton.onclick = () => deleteItem(index);
+        const deletebutton = document.createElement('button');
+        deletebutton.classList.add('delete');
+        deletebutton.textContent = 'Delete';
+        deletebutton.onclick = () => deleteItem(index);
 
         // insert delete button into the table
-        row.insertCell(3).appendChild(deleteButton);
+        row.insertCell(3).appendChild(deletebutton);
     });
 }
 
