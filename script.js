@@ -1,33 +1,47 @@
-// define an array to store the inventory items
+// Define an array to store inventory items
 let inventory = [];
 
-// function to update the table
+// Function to update the table
 function updateInventoryTable() {
-    const inventorytableBody = document.getElementById('inventoryTable').getElementsByTagName('tbody')[0];
-    inventorytableBody.innerHTML = ''; // clear the table body before updating
+    const inventoryTableBody = document.getElementById('inventoryTable').getElementsByTagName('tbody')[0];
+    inventoryTableBody.innerHTML = ''; // Clear table before updating
 
     inventory.forEach((item, index) => {
-        let row = inventorytableBody.insertRow();
+        let row = inventoryTableBody.insertRow();
 
-        // insert product name, quantity, price, and actions
         row.insertCell(0).textContent = item.name;
         row.insertCell(1).textContent = item.quantity;
-        row.insertCell(2).textContent = `₹${item.price.toFixed(3)}`;
+        row.insertCell(2).textContent = `₹${item.price.toFixed(2)}`;
 
-        // create delete button
-        const deletebutton = document.createElement('button');
-        deletebutton.classList.add('delete');
-        deletebutton.textContent = 'Delete';
-        deletebutton.onclick = () => deleteItem(index);
+        // Create Buy button
+        const buyButton = document.createElement('button');
+        buyButton.textContent = 'Buy';
+        buyButton.classList.add('buy');
+        buyButton.onclick = () => buyItem(index);
 
-        // insert delete button into the table
-        row.insertCell(3).appendChild(deletebutton);
+        // Create Sell button
+        const sellButton = document.createElement('button');
+        sellButton.textContent = 'Sell';
+        sellButton.classList.add('sell');
+        sellButton.onclick = () => sellItem(index);
+
+        // Create Delete button
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = 'Delete';
+        deleteButton.classList.add('delete');
+        deleteButton.onclick = () => deleteItem(index);
+
+        // Insert buttons into the table
+        let actionCell = row.insertCell(3);
+        actionCell.appendChild(buyButton);
+        actionCell.appendChild(sellButton);
+        actionCell.appendChild(deleteButton);
     });
 }
 
-// function to handle the form submission
+// Function to handle the form submission
 document.getElementById('addProductForm').addEventListener('submit', function (event) {
-    event.preventDefault(); // prevent the page from reloading on form submit
+    event.preventDefault();
 
     const productName = document.getElementById('productName').value;
     const productQuantity = document.getElementById('productQuantity').value;
@@ -40,26 +54,51 @@ document.getElementById('addProductForm').addEventListener('submit', function (e
             price: parseFloat(productPrice)
         };
 
-        // add the new item to the inventory array
         inventory.push(newItem);
 
-        // clear the input fields
+        // Clear input fields
         document.getElementById('productName').value = '';
         document.getElementById('productQuantity').value = '';
         document.getElementById('productPrice').value = '';
 
-        // update the inventory table
+        // Update inventory table
         updateInventoryTable();
     } else {
         alert('Please fill out all fields.');
     }
 });
 
-// function to delete an item from the inventory
-function deleteItem(index) {
-    inventory.splice(index, 1); // remove the item from the array
-    updateInventoryTable(); // update the table to reflect changes
+// Function to buy an item (increase quantity)
+function buyItem(index) {
+    const quantityToAdd = prompt("Enter quantity to buy:");
+    if (quantityToAdd && !isNaN(quantityToAdd) && quantityToAdd > 0) {
+        inventory[index].quantity += parseInt(quantityToAdd);
+        updateInventoryTable();
+    } else {
+        alert("Invalid quantity.");
+    }
 }
 
-// initialize the inventory table when the page loads
+// Function to sell an item (decrease quantity)
+function sellItem(index) {
+    const quantityToSell = prompt("Enter quantity to sell:");
+    if (quantityToSell && !isNaN(quantityToSell) && quantityToSell > 0) {
+        if (inventory[index].quantity >= quantityToSell) {
+            inventory[index].quantity -= parseInt(quantityToSell);
+            updateInventoryTable();
+        } else {
+            alert("Not enough stock available!");
+        }
+    } else {
+        alert("Invalid quantity.");
+    }
+}
+
+// Function to delete an item from inventory
+function deleteItem(index) {
+    inventory.splice(index, 1);
+    updateInventoryTable();
+}
+
+// Initialize inventory table when the page loads
 updateInventoryTable();
